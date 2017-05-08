@@ -22,7 +22,9 @@ export default {
   methods: {
     enrollForMobileAuthentication: function() {
       onegini.mobileAuth.enroll()
-          .then(onegini.mobileAuth.push.enroll)
+          .then(() => {
+            onegini.mobileAuth.push.enroll()
+          })
           .then(() => {
             navigator.notification.alert('You are now ready to receive Mobile Authentication requests!');
           })
