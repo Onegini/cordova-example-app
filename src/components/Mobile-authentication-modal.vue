@@ -80,18 +80,18 @@ export default {
           .onFingerprintFailed(() => {
             this.fingerprintStatus = 'No match!';
           })
-          .onSuccess((isFallback) => {
-            if (isFallback === true) {
-              this.fallbackToPin = true;
-              this.fingerprintStatus = null;
-            } else {
-             navigator.notification.alert('Fingerprint authentication success!');
-             this.complete();
-            }
+          .onSuccess(() => {
+            navigator.notification.alert('Fingerprint authentication success!');
+            this.complete();
           })
           .onError((err) => {
-            navigator.notification.alert('Something went wrong! ' + err.description);
-            this.complete();
+            if (err.fallbackToPin === true) {
+             this.fallbackToPin = true;
+             this.fingerprintStatus = null;
+            } else {
+              navigator.notification.alert('Something went wrong! ' + err.description);
+              this.complete();
+            }
           });
     },
 
