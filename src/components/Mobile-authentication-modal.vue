@@ -7,7 +7,7 @@
     <div class="body">
       <p v-if="fingerprintStatus">{{fingerprintStatus}}</p>
       <p v-else>{{request.message}}</p>
-      <div v-if="request.type === 'push_with_pin'">
+      <div v-if="request.type === 'push_with_pin' || fallbackToPin">
         <input type="password" pattern="[0-9]*" inputmode="numeric" v-model="pin" placeholder="Enter PIN" />
         <p>{{request.remainingFailureCount}} out of {{request.maxFailureCount}} attempts remaining</p>
       </div>
@@ -28,7 +28,8 @@ export default {
       pin: null,
       request: null,
       actions: null,
-      fingerprintStatus: null
+      fingerprintStatus: null,
+      fallbackToPin: false
     }
   },
 
@@ -79,9 +80,14 @@ export default {
           .onFingerprintFailed(() => {
             this.fingerprintStatus = 'No match!';
           })
-          .onSuccess(() => {
-            navigator.notification.alert('Fingerprint authentication success!');
-            this.complete();
+          .onSuccess((isFallback) => {
+            if (isFallback === true) {
+              this.fallbackToPin = true;
+              this.fingerprintStatus = null;
+            } else {
+             navigator.notification.alert('Fingerprint authentication success!');
+             this.complete();
+            }
           })
           .onError((err) => {
             navigator.notification.alert('Something went wrong! ' + err.description);
@@ -92,7 +98,7 @@ export default {
     accept: function() {
       if (this.request.type === 'push') {
         this.actions.accept();
-      } else if (this.request.type === 'push_with_pin') {
+      } else if (this.request.type === 'push_with_pin' || this.fallbackToPin) {
         this.actions.accept({pin: this.pin});
       } else if (this.request.type === 'push_with_fingerprint') {
         this.actions.accept({
@@ -111,6 +117,7 @@ export default {
       this.request = null;
       this.actions = null;
       this.fingerprintStatus = null;
+      this.fallbackToPin = false;
     }
   },
 
