@@ -31,6 +31,9 @@
         </edit-config>
     </platform>
     <platform name="ios">
+        <config-file parent="NSFaceIDUsageDescription" target="*-Info.plist">
+            <string>FaceID is used as a authenticator to login to application.</string>
+        </config-file>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
