@@ -9,33 +9,34 @@
         "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
     },
     "dependencies": {
-        "cordova-plugin-dialogs": "~1.3.0",
-        "cordova-plugin-onegini": "^5.1.0",
-        "cordova-plugin-onegini-fcm": "~1.0.0",
+        "cordova-plugin-dialogs": "~2.0.1",
+        "cordova-plugin-onegini": "^5.2.0",
+        "cordova-plugin-onegini-fcm": "^1.2.0",
         "cordova-plugin-pin-dialog": "~0.1.3",
-        "cordova-plugin-whitelist": "1",
-        "vue": "^2.1.0",
-        "vue-router": "^2.1.1"
+        "cordova-plugin-whitelist": "^1.3.3",
+        "vue": "^2.5.17",
+        "vue-router": "^3.0.2"
     },
     "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-loader": "^6.0.0",
-        "babel-preset-es2015": "^6.0.0",
-        "cross-env": "^3.0.0",
-        "css-loader": "^0.25.0",
-        "file-loader": "^0.9.0",
-        "vue-loader": "^10.0.0",
-        "vue-template-compiler": "^2.1.0",
-        "webpack": "^2.1.0",
-        "webpack-dev-server": "^2.1.0"
+        "@babel/core": "^7.1.6",
+        "babel-loader": "^8.0.4",
+        "@babel/preset-env": "^7.1.6",
+        "cross-env": "^5.2.0",
+        "css-loader": "^1.0.1",
+        "file-loader": "^2.0.0",
+        "vue-loader": "^15.4.2",
+        "vue-template-compiler": "^2.5.17",
+        "webpack": "^4.26.1",
+        "webpack-cli": "^3.1.2",
+        "webpack-dev-server": "^3.1.10"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-dialogs": {},
             "cordova-plugin-pin-dialog": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-onegini-fcm": {},
-            "cordova-plugin-onegini": {}
+            "cordova-plugin-onegini": {},
+            "cordova-plugin-onegini-fcm": {}
         },
         "platforms": []
     }
