@@ -31,14 +31,14 @@
 
     methods: {
       onDeviceReady: function() {
-        const pusher = PushNotification.init({android: {}});
+        const pusher = PushNotification.init({android: {},ios: {alert: "true", badge: "true", sound: "true"}});
         pusher.on('registration', (data) => {
           window.localStorage.setItem("fcmToken", data.registrationId);
         });
 
         pusher.on('notification', (data) => {
-          if (this.isOneginiPushMessage(data)) {
-            onegini.mobileAuth.push.handlePushMessage(data.additionalData.content)
+          if (onegini.mobileAuth.push.canHandlePushMessage(data)) { 
+            onegini.mobileAuth.push.handlePushMessage(data)
               .catch((err) => navigator.notification.alert('Push message error: ' + err.description));
           } else {
             var message = (data.title ? data.title + " " : "") + (data.message ? data.message : "");
@@ -53,14 +53,6 @@
         });
 
         this.startOnegini();
-      },
-
-      isOneginiPushMessage: function(data) {
-        if (data && data.additionalData && data.additionalData.content) {
-          var transactionId = data.additionalData.content.og_transaction_id;
-          return (typeof transactionId === "string" && transactionId.length > 0);
-        }
-        return false;
       },
 
       startOnegini: function () {
