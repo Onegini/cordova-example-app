@@ -65,7 +65,8 @@ export default {
     },
 
     enrollForPushMobileAuth: function() {
-      onegini.mobileAuth.push.enroll()
+      var token = window.localStorage.getItem("fcmToken");
+      onegini.mobileAuth.push.enroll(token)
           .then(() => {
             this.enablePushMobileAuthBtnText = "Re-enroll for push mobile authentication"
             navigator.notification.alert('You are now ready to receive push mobile authentication requests!');
