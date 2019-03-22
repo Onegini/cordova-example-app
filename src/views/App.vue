@@ -37,8 +37,8 @@
         });
 
         pusher.on('notification', (data) => {
-          if (onegini.mobileAuth.push.canHandlePushMessage(data)) { 
-            onegini.mobileAuth.push.handlePushMessage(data)
+          if (onegini.mobileAuth.push.canHandlePushMessage(data.additionalData)) { 
+            onegini.mobileAuth.push.handlePushMessage(data.additionalData)
               .catch((err) => navigator.notification.alert('Push message error: ' + err.description));
           } else {
             var message = (data.title ? data.title + " " : "") + (data.message ? data.message : "");
