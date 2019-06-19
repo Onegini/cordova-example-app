@@ -27,7 +27,7 @@ export default {
               if (cordova.platformId === 'android') {
                 navigator.app.loadUrl(result.redirectUri, { openExternal: true })
               } else if (cordova.platformId === 'ios') {
-                window.open(result.uri, '_system');
+                window.open(result.redirectUri, '_system');
               }
           })
           .catch((err) => {
