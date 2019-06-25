@@ -31,7 +31,7 @@ export default {
               }
           })
           .catch((err) => {
-                  navigator.notification.alert('App to web single sign on error: ' + err);
+                  navigator.notification.alert('App to web single sign on error: ' + err.description);
                 });
     },
 
