@@ -38,11 +38,11 @@
             "cordova-plugin-dialogs": {},
             "cordova-plugin-pin-dialog": {},
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-onegini": {},
             "phonegap-plugin-push": {
                 "FCM_VERSION": "17.3.4",
                 "ANDROID_SUPPORT_V13_VERSION": "27.+"
-            }
+            },
+            "cordova-plugin-onegini": {}
         },
         "platforms": []
     }

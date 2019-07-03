@@ -1,6 +1,7 @@
 <template>
   <div>
     <h3>Hello!</h3>
+    <button-lg text="App To Web Single Sign-On" @click="appToWebSingleSignOn" />
     <button-lg text="Settings" @click="$router.push('settings')" />
     <button-lg text="Logout" @click="logout" />
     <button-lg text="Deregister" @click="deregister" />
@@ -20,6 +21,20 @@ export default {
   },
 
   methods: {
+    appToWebSingleSignOn: function() {
+      onegini.user.getAppToWebSingleSignOn("https://demo-cim.onegini.com/personal/dashboard")
+          .then((result) => {
+              if (cordova.platformId === 'android') {
+                navigator.app.loadUrl(result.redirectUri, { openExternal: true })
+              } else if (cordova.platformId === 'ios') {
+                window.open(result.redirectUri, '_system');
+              }
+          })
+          .catch((err) => {
+                  navigator.notification.alert('App to web single sign on error: ' + err.description);
+                });
+    },
+
     logout: function() {
       onegini.user.logout()
           .then(() => {
