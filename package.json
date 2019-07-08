@@ -1,7 +1,7 @@
 {
     "name": "cordova-example-app",
     "description": "Example App for using the Onegini Cordova Plugin",
-    "version": "5.1.0",
+    "version": "6.0.1-SNAPSHOT",
     "author": "Onegini B.V",
     "private": true,
     "scripts": {
@@ -9,9 +9,8 @@
         "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
     },
     "dependencies": {
-        "cordova-android": "^8.0.0",
         "cordova-plugin-dialogs": "~2.0.1",
-        "cordova-plugin-onegini": "^5.3.0",
+        "cordova-plugin-onegini": "^6.0.0",
         "cordova-plugin-pin-dialog": "~0.1.3",
         "cordova-plugin-whitelist": "^1.3.3",
         "cordova-support-google-services": "^1.3.1",
