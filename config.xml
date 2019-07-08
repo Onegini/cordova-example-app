@@ -19,7 +19,7 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <!-- Required to set minSdkVersion in app if cordova-plugin-onegini is included -->
-        <preference name="android-minSdkVersion" value="16" />
+        <preference name="android-minSdkVersion" value="19" />
         <!-- Necessary to make sure that the deep app linking works properly -->
         <preference name="AndroidLaunchMode" value="singleTask"/>
         <edit-config file="AndroidManifest.xml" target="/manifest" mode="merge">
