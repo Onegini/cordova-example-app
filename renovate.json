@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "commitMessagePrefix": "[RENOVATE] ",
+  "packageRules": [
+  	{
+  	"packagePattern": "onegini-documentation-parent",
+  	"enabled": "false"
+  	}  	
+  ]
+}

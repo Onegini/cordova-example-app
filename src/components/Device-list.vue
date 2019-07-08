@@ -34,8 +34,14 @@
             this.devices = result.json.devices;
           })
           .catch((err) => {
-            console.error('Error while fetching devices:', err);
-            this.status = 'Could not fetch devices';
+            console.error("Error while fetching devices: "+err.description);
+            if (err.httpResponse.status == 401) {
+              navigator.notification.alert('Your access token has expired, please login again', () => {
+                this.$router.push('login');
+              });
+            } else {
+              this.status = 'Could not fetch devices';
+            }
           });
       }
     },
