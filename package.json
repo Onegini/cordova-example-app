@@ -1,7 +1,7 @@
 {
     "name": "cordova-example-app",
     "description": "Example App for using the Onegini Cordova Plugin",
-    "version": "6.0.1",
+    "version": "6.0.2-SNAPSHOT",
     "author": "Onegini B.V",
     "private": true,
     "scripts": {
