@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "cordova-plugin-dialogs": "~2.0.1",
-        "cordova-plugin-onegini": "^6.0.1",
+        "cordova-plugin-onegini": "^6.3.0",
         "cordova-plugin-pin-dialog": "~0.1.3",
         "cordova-plugin-whitelist": "^1.3.3",
         "cordova-support-google-services": "^1.3.2",
