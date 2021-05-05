@@ -33,6 +33,7 @@
         <resource-file src="google-services.json" target="app/google-services.json" />
     </platform>
     <platform name="ios">
+        <preference name="deployment-target" value="12.0.0" />
         <config-file parent="NSFaceIDUsageDescription" target="*-Info.plist">
             <string>FaceID is used as a authenticator to login to application.</string>
         </config-file>
